@@ -60,7 +60,7 @@ int main(void) {
         if (i == max_len_word) {
             printf("ERROR! Eingabe zu lang.\n");
             return 1;
-        } else if (!isalpha(theword[i]) && !isspace(theword[i])) {
+        } else if (!isalpha(theword[i]) && !isspace(theword[i]) && theword[i] != '-') {
             printf("ERROR! Ungültige Eingabe.\n");
             return 1;
         }
@@ -79,6 +79,8 @@ int main(void) {
         if (isalpha(theword[i])) {
             guessed_word[i] = '_';
             rem_letters++;
+        } else if (theword[i] == '-') {
+            guessed_word[i] = '-';
         } else {
             guessed_word[i] = ' ';
         }
